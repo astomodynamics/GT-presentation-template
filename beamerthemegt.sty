@@ -41,6 +41,7 @@
 \pgfdeclareimage[width=0.08\paperwidth]{rgblogo}{images/gt_seal_rgb.png}
 \pgfdeclareimage[width=0.08\paperwidth]{whitelogo}{images/gt_seal_white.png}
 \pgfdeclareimage[width=0.08\paperwidth]{goldlogo}{images/gt_seal_gold.png}
+\pgfdeclareimage[width=0.08\paperwidth]{nologo}{images/placeholder.png}
 \newcommand{\@GTlogo}{rgblogo}
 
 % Set colours
@@ -65,17 +66,25 @@
 	\ifstrequal{#1}{lightnologo}{%
 		\setbeamercolor{normal text}{fg=gtblue,bg=white}
 		\setbeamercolor{structure}{fg=gtblue}
-		\renewcommand{\@GTlogo}{goldlogo}
+		\renewcommand{\@GTlogo}{nologo}
 		\setbeamercolor{block title}{fg=white,bg=gtblue}
 		\setbeamercolor{block body}{fg=white,bg=gtblue}
+	}{}
+
+        \ifstrequal{#1}{title}{%
+		\setbeamercolor{normal text}{fg=white,bg=gtblue}
+		\setbeamercolor{structure}{fg=white}
+		\renewcommand{\@GTlogo}{nologo}
+		\setbeamercolor{block title}{fg=gtgold,bg=gtblue}
+		\setbeamercolor{block body}{fg=gtgol,bg=gtblue}
 	}{}
 }
 \themecolor{light}
 
-\setbeamercolor{title}{fg=gtgold,bg=white}
-\setbeamercolor{alerted text}{fg=gtblue}
-\setbeamercolor{author}{fg=gtblue}
-\setbeamercolor{date}{fg=gtblue}
+\setbeamercolor{title}{fg=gtblue,bg=white}
+\setbeamercolor{alerted text}{fg=gtgold}
+\setbeamercolor{author}{fg=gtgold}
+\setbeamercolor{date}{fg=gtgold}
 
 \setbeamerfont{author}{size=\scriptsize}
 \setbeamerfont{date}{size=\tiny}
@@ -109,18 +118,22 @@
 
 % Define frame title and subtitle layout
 \setbeamertemplate{frametitle}{%
-  \vspace*{-3.5ex}
-  \begin{beamercolorbox}[leftskip=2cm]{frametitle}%
+  \vspace*{-4.0ex}
+  \begin{beamercolorbox}[leftskip=1.5cm]{frametitle}%
     \usebeamerfont{frametitle}\insertframetitle\\
     \usebeamerfont{framesubtitle}\insertframesubtitle
   \end{beamercolorbox}
 }
 
+
 % Define the title page
 \setbeamertemplate{title page}{%
-  \vskip0pt plus 1filll%
-  \hspace{-12mm}% Pull back the box in an inelegant way - but it works!
-  \begin{beamercolorbox}[wd=0.45\textwidth,sep=10pt,leftskip=8mm]{title}%
+  % \vskip0pt plus 1filll
+  \vspace{15mm}
+  \hspace{-15mm}% Pull back the box in an inelegant way - but it works!
+  \pgfsetfillopacity{0.9}
+  \begin{beamercolorbox}[wd=0.6\textwidth,sep=10pt,leftskip=8mm]{title}%
+    \pgfsetfillopacity{1}
     {\usebeamerfont{title}\inserttitle}
   
     {\usebeamerfont{subtitle}\insertsubtitle}
@@ -128,9 +141,11 @@
     {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
   
     {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
+    
   \end{beamercolorbox}
 }
 
+% diagonal split setting
 \newcommand{\TikzSplitSlide}[1]{%
   \rule{0.4\paperwidth}{0pt}%
   \begin{tikzpicture}
@@ -160,8 +175,9 @@
       \ifbool{splittitle}{%
         \TikzSplitSlide{\@TitleBackground}
       }{% Normal, full-screen background
-        \includegraphics[width=\paperwidth]{\@TitleBackground}
-        % \includegraphics[height=\paperheight]{\@TitleBackground}
+        % \includegraphics[width=\paperwidth]{\@TitleBackground}
+        \hspace{12mm}
+        \includegraphics[height=\paperheight]{\@TitleBackground}
       }
     }
   }
@@ -222,6 +238,7 @@
   \endgroup
 }
 
+% Define backmatter
 \newcommand{\backmatter}{
 \begingroup
   \setbeamertemplate{footline}{}
