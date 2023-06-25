@@ -1,0 +1,65 @@
+% This file is a component of the GT Beamer Template
+
+\ProvidesPackage{gtfont}[2023/06/25]
+\usepackage{iftex}
+
+
+\ifpdftex
+% pdfLaTeX does not support directly embedding OpenType fonts
+% We will therefore use fonts from the LaTeX font catalogue
+% https://tug.org/FontCatalogue
+% These fonts are pdfLaTeX ready
+% We use OpenSans as Sans Serif and Caladea as the Serif font
+\usepackage[defaultsans,scale=0.9]{opensans} % replaces default sans-serif font
+\usepackage{caladea} % replaces default serif font
+\usepackage[T1]{fontenc}
+\fi
+
+
+\ifxetex
+% XeLaTeX directly supports OpenType fonts
+% Use XeLaTeX if you would like more options with fonts
+% We use OpenSans as Sans Serif and IBM Plex Serif as the Serif font
+% We also augment them with Playfair Display SC for the Small Caps Style.
+\usepackage{fontspec}
+% The commands \setsansfont, \setmainfont and \setmonofont are provided by the fontspec package.
+% These commands provide a very fine grained control over fonts.
+% e.g. OpenSans does not provide SmallCapsFont, so we will augment it with Playfair Display SC for the Small Caps Style.
+% Small Caps style is used in the pseudocode.
+
+% By default Beamer uses Sans-Serif mode and the font specified in \setsansfont is the font that will be applied in most places.
+\setsansfont{Roboto}[
+    Path=./fonts/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=Roboto/*-Regular,
+    BoldFont=Roboto/*-Bold,
+    ItalicFont=Roboto/*-Italic,
+    BoldItalicFont=Roboto/*-BoldItalic,
+    SmallCapsFont=Playfair_Display_SC/PlayfairDisplaySC-Regular % OpenSans does not have an SC variant
+]
+% Other less common font styles are SlantedFont, BoldSlantedFont, SwashFont and BoldSwashFont.
+% If your font also provides additional faces (e.g. ExtraLight, etc), fontspec also supports them.
+% Please see the fontspec documentation Section 4.3 (Choosing additional NFSS font faces) for details.
+
+% This is used if we use \usefonttheme{serif} in main.tex
+% With the default \usefonttheme[onlymath]{serif}, this will control the font used for math
+\setmainfont{IBMPlexSerif}[
+    Path=./fonts/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=IBM_Plex_Serif/*-Regular,
+    BoldFont=IBM_Plex_Serif/*-Bold,
+    ItalicFont=IBM_Plex_Serif/*-Italic,
+    BoldItalicFont=IBM_Plex_Serif/*-BoldItalic,
+    SmallCapsFont=Playfair_Display_SC/PlayfairDisplaySC-Regular % IBMPlexSerif does not have an SC variant
+]
+
+% This controls verbatim text (i.e. code)
+\setmonofont{NotoSansMono}[
+    Path=./fonts/Noto_Sans_Mono/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=*-Regular
+]
+\fi
