@@ -15,10 +15,11 @@
 % No navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
+\newcommand{\@footlinetitle}{\insertfootlinetitle}
 \newcommand{\@footlinepayoff}{\insertpagenumber}
 \setbeamertemplate{footline}{%
   \begin{beamercolorbox}[wd=\textwidth,ht=5mm,dp=3mm,rightskip=1cm]{footline}
-  \usebeamerfont{footline}\hfill\@footlinepayoff
+  \usebeamerfont{footline} \hspace{15mm} \hfill  \@footlinetitle \hfill\@footlinepayoff 
   \end{beamercolorbox}
 }
 
@@ -26,11 +27,13 @@
 \newcommand{\footlinecolor}[1]{% if #1 is empty, makes footline transparent
   \ifstrempty{#1}{%
     \renewcommand{\@footlinepayoff}{}
-    \setbeamercolor{footline}{bg=}
+    \renewcommand{\@footlinetitle}{}
+    \setbeamercolor{footline}{fg=white,bg=#1}
     \setbeamercolor{block title}{fg=white,bg=gtblue}
     \setbeamercolor{block body}{fg=white,bg=gtblue}
   }{
     \renewcommand{\@footlinepayoff}{\insertpagenumber}
+    \renewcommand{\@footlinetitle}{\insertfootlinetitle}
     \setbeamercolor{footline}{fg=white,bg=#1}
     \setbeamercolor{block title}{fg=white,bg=#1}
     \setbeamercolor{block body}{fg=white,bg=#1}
@@ -52,7 +55,7 @@
 	\ifstrequal{#1}{dark}{%
 		\setbeamercolor{normal text}{fg=white,bg=gtblue}
 		\setbeamercolor{structure}{fg=white}
-		\renewcommand{\@GTlogo}{whitelogo}
+		\renewcommand{\@GTlogo}{goldlogo}
 		\setbeamercolor{block title}{fg=gtgold,bg=gtblue}
 		\setbeamercolor{block body}{fg=gtgol,bg=gtblue}
 	}{}
@@ -115,6 +118,7 @@
 
 % Put the logo in each slide's top left area
 \setbeamertemplate{headline}{\vspace{0.03\textwidth}\hspace{0.06\textwidth}\pgfuseimage{\@GTlogo}}
+
 
 % Define frame title and subtitle layout
 \setbeamertemplate{frametitle}{%

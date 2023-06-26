@@ -6,7 +6,7 @@
 
 \newcommand{\hrefcol}[2]{\textcolor{gtbuzzgold}{\href{#1}{#2}}}
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
-
+\newcommand{\insertfootlinetitle}{2023}
 
 \usefonttheme[onlymath]{serif}
 % \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
@@ -18,7 +18,7 @@
 
 \subtitle{Using \LaTeX\ to prepare slides}
 
-\author{\href{mailto:tomohiro.sasaki@gatech.edu}{Tomohiro Sasaki}}
+\author{\href{mailto:tomohiro.sasaki@gatech.edu}{Tomohiro Sasaki}\\Ph.D. Student at Georgia Insititute of Technology}
 \date{\today}
 
 \begin{document}
@@ -30,7 +30,6 @@
 % % default is no footline, but page numbers are incredibly useful for the audience to ask questions later
 \footlinecolor{gtblue}
 
-
 \begin{frame}{Beamer for GT SSDL presentations}
 If you would like \LaTeX in your presentation, Beamer is a great way to go!
 \begin{itemize}
@@ -38,12 +37,14 @@ If you would like \LaTeX in your presentation, Beamer is a great way to go!
 \hrefcol{https://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{user
  manual}, but we will go over the most common features.
 \item The most common of all slide types involve bulleted points, like these.
-\item Regular \LaTeX commands will help you type math, as below.
+\item Regular \LaTeX commands will help you type math, as below\footnotemark.
 \begin{equation*}
 \mathcal{L} (\theta) = \log \sum_{k=1}^{\lvert Z \rvert} Q(z_k \mid y) \frac{P( z_k,  y \mid \theta)}{Q(z_k \mid y)} \geq \sum_{k=1}^{\lvert Z \rvert} Q(z_k \mid y) \log \frac{P( z_k,  y \mid \theta)}{Q(z_k \mid y)}
 \end{equation*}
 \end{itemize}
+\footnotetext{A test footnote for both columns}
 \end{frame}
+
 
 
 \begin{chapter}[images/gt_tower_night.jpg]{gtblue}{Slide Layouts}
