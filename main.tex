@@ -1,5 +1,4 @@
 \documentclass{beamer}
-\usepackage{xcolor}
 \usetheme{gt}
 \usepackage{amsfonts,amsmath,oldgerm,algorithmic,algorithm}
 \usepackage[font=small,labelfont=bf]{caption}
@@ -21,6 +20,10 @@
 \author{\href{mailto:tomohiro.sasaki@gatech.edu}{Tomohiro Sasaki}\\Ph.D. Student at Georgia Insititute of Technology}
 \date{\today}
 
+\AtBeginSection[]{
+    \frame{\vspace{-15mm}\tableofcontents[currentsection, hideallsubsections]} %目次スライド
+}
+
 \begin{document}
 % \themecolor{lightnologo}
 \themecolor{title}
@@ -29,6 +32,12 @@
 \themecolor{light}
 % % default is no footline, but page numbers are incredibly useful for the audience to ask questions later
 \footlinecolor{gtblue}
+
+\themecolor{lightnologo}
+\frame{\vspace{-15mm}\tableofcontents[hideallsubsections]}
+
+\themecolor{light}
+\section{Beamer for GT SSDL presentations}
 
 \begin{frame}{Beamer for GT SSDL presentations}
 If you would like \LaTeX in your presentation, Beamer is a great way to go!
@@ -46,7 +55,7 @@ If you would like \LaTeX in your presentation, Beamer is a great way to go!
 \end{frame}
 
 
-
+\section{Chapter}
 \begin{chapter}[images/gt_tower_night.jpg]{gtblue}{Slide Layouts}
 \textit{An overview of some different slide types you can have.}
 \end{chapter}
