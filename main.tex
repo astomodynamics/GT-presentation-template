@@ -2,6 +2,7 @@
 \usetheme{gt}
 \usepackage{amsfonts,amsmath,oldgerm,algorithmic,algorithm}
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{animate}
 
 \newcommand{\hrefcol}[2]{\textcolor{gtbuzzgold}{\href{#1}{#2}}}
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
@@ -132,6 +133,11 @@ This slide layout was achieved using the \verb|columns| feature. The number and 
 \captionof{figure}{Minimum time trajectory}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Embed GIF}
+    \centering
+    \animategraphics[loop,width=4cm]{10}{plots/gifs/blinking-eyes-huh-}{0}{33}
 \end{frame}
 
 
