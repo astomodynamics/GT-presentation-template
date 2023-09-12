@@ -8,6 +8,10 @@
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
 \newcommand{\insertfootlinetitle}{2023}
 
+\usepackage[backend=biber,style=ieee,note=false,isbn=false,doi=false,eprint=false,sorting=none,citestyle=authortitle]{biblatex}
+% \addbibresource{ddp.bib}
+\xapptobibmacro{cite}{\setunit{\nametitledelim}\printfield{year}}{}{}
+
 % \usefonttheme[onlymath]{serif}
 % \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
 
