@@ -11,6 +11,9 @@
 \usepackage[backend=biber,style=ieee,note=false,isbn=false,doi=false,eprint=false,sorting=none,citestyle=authortitle]{biblatex}
 % \addbibresource{ddp.bib}
 \xapptobibmacro{cite}{\setunit{\nametitledelim}\printfield{year}}{}{}
+\AtEveryBibitem{
+    \clearfield{note}
+} 
 
 % \usefonttheme[onlymath]{serif}
 % \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
