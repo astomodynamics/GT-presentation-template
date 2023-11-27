@@ -6,10 +6,9 @@
 
 \newcommand{\hrefcol}[2]{\textcolor{gtbuzzgold}{\href{#1}{#2}}}
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
-\newcommand{\insertfootlinetitle}{2023}
 
 \usepackage[backend=biber,style=ieee,note=false,isbn=false,doi=false,eprint=false,sorting=none,citestyle=authortitle]{biblatex}
-% \addbibresource{ddp.bib}
+\addbibresource{sample.bib}
 \xapptobibmacro{cite}{\setunit{\nametitledelim}\printfield{year}}{}{}
 \AtEveryBibitem{
     \clearfield{note}
@@ -27,6 +26,9 @@
 
 \author{\href{mailto:tomohiro.sasaki@gatech.edu}{Tomohiro Sasaki}\\Ph.D. Student at Georgia Institute of Technology}
 \date{\today}
+
+
+\newcommand{\insertfootlinetitle}{2023}% Define footline title 
 
 \AtBeginSection[]{
     \frame{\vspace{-15mm}\tableofcontents[currentsection, hideallsubsections]} %目次スライド
@@ -278,6 +280,21 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 \end{frame}
 
 
+\begin{frame}{Adding Bibliography}
+
+    \begin{itemize}
+        \item Footnote citation command is \texttt{$\backslash$footenote\{$\backslash$cite\{YOUR-REFERENCE-KEY\}\}}\footnote[1]{\cite{Sasaki.Lightsey.2022}}
+        \item Footnote number can also be modified \footnote[3]{\cite{Sasaki.Lightsey.2022}}
+        \item If you want to add reference without footnote use \texttt{$\backslash$nocite\{YOUR-REFERENCE-KEY\}}[Sasaki, 2023]\nocite{Sasaki.Lightsey.2023} (Reference is still added at the end)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{References}
+    \AtNextBibliography{\footnotesize}
+    {
+    \printbibliography[heading=none]
+    }
+\end{frame}
 
 \begin{frame}{Changing Footers}
     Footers can be modified by
