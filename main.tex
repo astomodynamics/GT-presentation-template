@@ -3,7 +3,7 @@
 \usepackage{amsfonts,amsmath,oldgerm,algorithmic,algorithm}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{animate}
-
+\usepackage{media9}
 \newcommand{\hrefcol}[2]{\textcolor{gtbuzzgold}{\href{#1}{#2}}}
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
 
@@ -148,9 +148,24 @@ This slide layout was achieved using the \verb|columns| feature. The number and 
     Use "magick convert -coalesce something.gif something.png"
     
     \centering
-    \animategraphics[loop,width=4cm]{10}{plots/gifs/blinking-eyes-huh-}{0}{33}
+    \animategraphics[autoplay, loop,width=4cm]{10}{plots/gifs/blinking-eyes-huh-}{0}{33}
 \end{frame}
 
+\begin{frame}{Embed Video}
+    
+    \centering
+    % \movie[label=show3,width=0.5\textwidth,autostart,showcontrols,loop] {\includegraphics[width=0.5\textwidth]{plots/pendulum.png}}{pendulum.mp4}
+    \includemedia[
+    width=0.6\linewidth,
+    height=0.45\linewidth,
+    activate=pageopen,
+    addresource=plots/pendulum.mp4,
+    flashvars={
+      source=plots/pendulum.mp4
+      &autoPlay=true
+    }
+  ]{\includegraphics[width=0.5\textwidth]{plots/pendulum.png}}{VPlayer.swf}
+\end{frame}
 
 \begin{frame}[fragile]{Blocks for theorems}
 Blocks are a great UI element and can be used for typesetting theorems.
