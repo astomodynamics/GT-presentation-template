@@ -156,12 +156,11 @@ This slide layout was achieved using the \verb|columns| feature. The number and 
     \centering
     % \movie[label=show3,width=0.5\textwidth,autostart,showcontrols,loop] {\includegraphics[width=0.5\textwidth]{plots/pendulum.png}}{pendulum.mp4}
     \includemedia[
-    width=0.6\linewidth,
-    height=0.4\linewidth,
+    height=0.4\textwidth,
     activate=pageopen,
-    addresource=plots/pendulum.mp4,
+    addresource=videos/pendulum.mov,
     flashvars={
-      source=plots/pendulum.mp4
+      source=videos/pendulum.mov
       &autoPlay=true
       &scaleMode=letterbox
       &modestbranding=1 % no YT logo in control bar
@@ -169,7 +168,7 @@ This slide layout was achieved using the \verb|columns| feature. The number and 
         &showinfo=0 % no title and other info before start
         &rel=0 % no related videos after end
     },
-  ]{\fbox{click!}}{VPlayer.swf}
+  ]{\includegraphics[height=0.4\textwidth]{plots/pendulum.png}}{VPlayer.swf}
 \end{frame}
 
 \begin{frame}[fragile]{Blocks for theorems}
