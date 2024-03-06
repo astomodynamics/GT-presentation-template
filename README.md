@@ -9,3 +9,6 @@ Feel free to fork and change this template.
 2. Open Overleaf and Import the project from GitHub
 3. Compile the project
 4. Download the pdf if needed
+
+## Sample pdf
+[sample.pdf](https://github.com/astomodynamics/GT-SSDL-presentation-template/blob/master/GT_SSDL_presentation_template.pdf)
