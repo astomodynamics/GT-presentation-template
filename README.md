@@ -11,4 +11,5 @@ Feel free to fork and change this template.
 4. Download the pdf if needed
 
 ## Sample pdf
-[sample.pdf](https://github.com/astomodynamics/GT-SSDL-presentation-template/blob/master/GT_SSDL_presentation_template.pdf)
+Here is the sample pdf ([sample.pdf](https://github.com/astomodynamics/GT-SSDL-presentation-template/blob/master/GT_SSDL_presentation_template.pdf)). Adobe Acrobat Reader is the recommended pdf software. 
+
