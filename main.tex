@@ -4,6 +4,7 @@
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{animate}
 \usepackage{media9}
+\usepackage{tikz}
 \newcommand{\hrefcol}[2]{\textcolor{gtbuzzgold}{\href{#1}{#2}}}
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
 
@@ -169,6 +170,14 @@ This slide layout was achieved using the \verb|columns| feature. The number and 
         &rel=0 % no related videos after end
     },
   ]{\includegraphics[height=0.4\textwidth]{plots/pendulum.png}}{VPlayer.swf}
+\end{frame}
+
+\begin{frame}{Tikz Figure}
+    \begin{tikzpicture}
+        \draw[gray, thick] (-1,2) -- (2,-4);
+        \draw[gray, thick] (-1,-1) -- (2,2);
+        \filldraw[black] (0,0) circle (2pt) node[anchor=west]{Intersection point};
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}[fragile]{Blocks for theorems}
