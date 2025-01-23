@@ -72,6 +72,22 @@
 		\renewcommand{\@GTlogo}{nologo}
 		\setbeamercolor{block title}{fg=white,bg=gtblue}
 		\setbeamercolor{block body}{fg=white,bg=gtblue}
+
+
+    % Shift the slide title:
+    % We remove the extra leftskip that was previously for the logo.
+    \setbeamertemplate{frametitle}{%
+      % If you want a bit of vertical lift, adjust \vspace*{-4ex}:
+      \vspace*{-4ex}%
+      \begin{beamercolorbox}[%
+          wd=\paperwidth,
+          leftskip=1.5em,      % <--- change this to taste
+          sep=0.5em
+        ]{frametitle}%
+        \usebeamerfont{frametitle}\insertframetitle\\[-3pt]
+        \usebeamerfont{framesubtitle}\insertframesubtitle
+      \end{beamercolorbox}
+    }
 	}{}
 
         \ifstrequal{#1}{title}{%
@@ -120,10 +136,9 @@
 % Put the logo in each slide's top left area
 \setbeamertemplate{headline}{\vspace{0.03\textwidth}\hspace{0.06\textwidth}\pgfuseimage{\@GTlogo}}
 
-
 % Define frame title and subtitle layout
 \setbeamertemplate{frametitle}{%
-  \vspace*{-0.8cm}
+  \vspace*{-4.0ex}
   \begin{beamercolorbox}[leftskip=1.5cm]{frametitle}%
     \usebeamerfont{frametitle}\insertframetitle\\
     \usebeamerfont{framesubtitle}\insertframesubtitle
@@ -137,7 +152,7 @@
   \vspace{15mm}
   \hspace{-15mm}% Pull back the box in an inelegant way - but it works!
   \pgfsetfillopacity{0.9}
-  \begin{beamercolorbox}[wd=0.6\textwidth,sep=10pt,leftskip=8mm]{title}%
+  \begin{beamercolorbox}[wd=0.8\textwidth,sep=10pt,leftskip=8mm]{title}%
     \pgfsetfillopacity{1}
     {\usebeamerfont{title}\inserttitle}
   
