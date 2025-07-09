@@ -14,6 +14,7 @@
 \usepackage{caladea} % replaces default serif font
 \usepackage[T1]{fontenc}
 \usepackage{unicode-math}  % for \oiint command (also loads fontspec)
+
 \fi
 
 
@@ -29,6 +30,8 @@
 % Small Caps style is used in the pseudocode.
 
 % By default Beamer uses Sans-Serif mode and the font specified in \setsansfont is the font that will be applied in most places.
+
+
 \setsansfont{Roboto}[
     Path=./fonts/,
     Scale=0.9,
@@ -56,6 +59,29 @@
     SmallCapsFont=Playfair_Display_SC/PlayfairDisplaySC-Regular % IBMPlexSerif does not have an SC variant
 ]
 
+% \setmathfont{cmr}
+% \setmainfont{NotoSerif}[
+%     Path=./fonts/,
+%     Scale=0.9,
+%     Extension = .ttf,
+%     UprightFont=Noto_Serif/*-Regular,
+%     BoldFont=Noto_Serif/*-Bold,
+%     ItalicFont=Noto_Serif/*-Italic,
+%     BoldItalicFont=Noto_Serif/*-BoldItalic,
+%     SmallCapsFont=Playfair_Display_SC/PlayfairDisplaySC-Regular % IBMPlexSerif does not have an SC variant
+% ]
+
+% \setmainfont{Roboto}[
+%     Path=./fonts/,
+%     Scale=0.9,
+%     Extension = .ttf,
+%     UprightFont=Roboto/*-Regular,
+%     BoldFont=Roboto/*-Bold,
+%     ItalicFont=Roboto/*-Italic,
+%     BoldItalicFont=Roboto/*-BoldItalic,
+%     SmallCapsFont=Playfair_Display_SC/PlayfairDisplaySC-Regular % OpenSans does not have an SC variant
+% ]
+
 % This controls verbatim text (i.e. code)
 \setmonofont{NotoSansMono}[
     Path=./fonts/Noto_Sans_Mono/,
@@ -64,3 +90,4 @@
     UprightFont=*-Regular
 ]
 \fi
+% \usepackage[T1, no-math]{fontenc}

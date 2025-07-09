@@ -1,22 +1,51 @@
 \documentclass{beamer}
 \usetheme{gt}
-\usepackage{amsfonts,amsmath,oldgerm,algorithmic,algorithm}
+
+%==============================================================================
+% PACKAGES
+%==============================================================================
+\usepackage{amsfonts,amsmath,amssymb,oldgerm,algorithmic,algorithm}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{animate}
 \usepackage{media9}
 \usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{subfigure}
+
+%------------------------------------------------------------------------------
+% BIBLIOGRAPHY SETUP
+%------------------------------------------------------------------------------
+\usepackage[backend=biber,
+            style=ieee,
+            note=false,
+            isbn=false,
+            doi=false,
+            eprint=false,
+            sorting=none,
+            citestyle=authortitle]{biblatex}
+\addbibresource{sample.bib}
+
+%------------------------------------------------------------------------------
+% CUSTOM MACROS
+%------------------------------------------------------------------------------
 \newcommand{\hrefcol}[2]{\textcolor{gtbuzzgold}{\href{#1}{#2}}}
 \newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
 
-\usepackage[backend=biber,style=ieee,note=false,isbn=false,doi=false,eprint=false,sorting=none,citestyle=authortitle]{biblatex}
-\addbibresource{sample.bib}
-\xapptobibmacro{cite}{\setunit{\nametitledelim}\printfield{year}}{}{}
-\AtEveryBibitem{
-    \clearfield{note}
-} 
+% My commands >>>
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\mrm}[1]{\mathrm{#1}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\Id}{\boldsymbol{I}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\argmin}{\mathrm{argmin~}}
+\newcommand{\st}{\mathrm{s.t.~}}
 
-% \usefonttheme[onlymath]{serif}
-% \usefonttheme{serif} % use this if you would like Serif font throughout (and not just for math)
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% <<< My commands end
 
 \title{Get started with the GT SSDL Beamer Theme}
 \titlebackground{images/gt_landscape.jpg}
@@ -40,14 +69,14 @@
 \themecolor{title}
 \maketitle
 
-\themecolor{light}
+\themecolor{lightnologo}
 % % default is no footline, but page numbers are incredibly useful for the audience to ask questions later
 \footlinecolor{gtblue}
 
 \themecolor{lightnologo}
 \frame{\vspace{-15mm}\tableofcontents[hideallsubsections]}
 
-\themecolor{light}
+\themecolor{lightnologo}
 \section{Beamer for GT SSDL presentations}
 
 \begin{frame}{Beamer for GT SSDL presentations}
@@ -71,7 +100,7 @@ If you would like \LaTeX in your presentation, Beamer is a great way to go!
 \textit{An overview of some different slide types you can have.}
 \end{chapter}
 
-
+\themecolor{lightnologo}
 \begin{frame}[fragile]{More with bullet points}
 \framesubtitle{Unrolling}
 \begin{itemize}[<+->]
