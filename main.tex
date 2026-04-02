@@ -1,29 +1,27 @@
+% !TEX program = xelatex
 \documentclass{beamer}
 \usetheme{gt}
 
 %==============================================================================
 % PACKAGES
 %==============================================================================
-\usepackage{amsfonts,amsmath,amssymb,oldgerm,algorithmic,algorithm}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsfonts,amsmath,amssymb}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{animate}
 \usepackage{media9}
 \usepackage{tikz}
-\usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage{subfigure}
 
 %------------------------------------------------------------------------------
 % BIBLIOGRAPHY SETUP
 %------------------------------------------------------------------------------
 \usepackage[backend=biber,
             style=ieee,
-            note=false,
             isbn=false,
             doi=false,
             eprint=false,
-            sorting=none,
-            citestyle=authortitle]{biblatex}
+            sorting=none]{biblatex}
 \addbibresource{sample.bib}
 
 %------------------------------------------------------------------------------
@@ -42,6 +40,8 @@
 \newcommand{\TT}{\mathcal{T}}
 \newcommand{\argmin}{\mathrm{argmin~}}
 \newcommand{\st}{\mathrm{s.t.~}}
+\newcommand*\CALL[2]{\textsf{#1}(#2)}
+\newcommand*\ANNOTATE[1]{\hfill\(\triangleright\) #1}
 
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
@@ -54,11 +54,11 @@
 
 \subtitle{Using \LaTeX\ to prepare slides}
 
-\author{\href{mailto:tomohiro.sasaki@gatech.edu}{Tomohiro Sasaki}\\Ph.D. Student at Georgia Institute of Technology}
+\author[Tomohiro Sasaki]{\href{mailto:tomohiro.sasaki@gatech.edu}{Tomohiro Sasaki}\\Ph.D. Student at Georgia Institute of Technology}
 \date{\today}
 
 
-\newcommand{\insertfootlinetitle}{2023}% Define footline title 
+\newcommand{\insertfootlinetitle}{\the\year}
 
 \AtBeginSection[]{
     \frame{\vspace{-15mm}\tableofcontents[currentsection, hideallsubsections]} %目次スライド
@@ -145,7 +145,7 @@ Alerts can also be localized.
 Adding images works like in normal \LaTeX:
 \begin{block}{Code for Adding Images}
 \begin{verbatim}
-
+\includegraphics[width=\textwidth]{images/gt_tower.jpg}
 \end{verbatim}
 \end{block}
 This slide layout was achieved using the \verb|columns| feature. The number and widths of the columns is totally user preference. Another columns example follows on the next slide.
@@ -247,20 +247,12 @@ content...
 
 
 \begin{sidepic}{images/gt_seal_rgb}{Side-Picture Slides}
-Just another another layout you may want to use.
+Just another layout you may want to use.
 \begin{itemize}
 \item These type of slides are created using \texttt{$\backslash$begin\{sidepic\}\{<image>\}\{<title>\}}
 \item Otherwise, \texttt{sidepic} works just like \texttt{frame}
 \end{itemize}
 \end{sidepic}
-
-
-\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-\renewcommand{\algorithmicensure}{\textbf{Output:}}
-\newcommand*\CALL[2]{\textsc{#1}(#2)}
-% \newcommand*\ANNOTATE[1]{\hfill\{#1\}}%
-% \newcommand*\ANNOTATE[1]{\hskip3em$\rightarrow$ #1}
-\newcommand*\ANNOTATE[1]{\hfill\(\triangleright\) #1}%
 
 \footlinecolor{}
 
@@ -340,7 +332,7 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 \begin{frame}{Adding Bibliography}
 
     \begin{itemize}
-        \item Footnote citation command is \texttt{$\backslash$footenote\{$\backslash$cite\{YOUR-REFERENCE-KEY\}\}}\footnote[1]{\cite{Sasaki.Lightsey.2022}}
+        \item Footnote citation command is \texttt{$\backslash$footnote\{$\backslash$cite\{YOUR-REFERENCE-KEY\}\}}\footnote[1]{\cite{Sasaki.Lightsey.2022}}
         \item Footnote number can also be modified \footnote[3]{\cite{Sasaki.Lightsey.2022}}
         \item If you want to add reference without footnote use \texttt{$\backslash$nocite\{YOUR-REFERENCE-KEY\}}[Sasaki, 2023]\nocite{Sasaki.Lightsey.2023} (Reference is still added at the end)
     \end{itemize}
@@ -355,11 +347,11 @@ Three fundamental features greatly affect the look and feel of your slides. Two 
 
 \begin{frame}{Changing Footers}
     Footers can be modified by
-    \texttt{$\backslash$newcommand\{$\backslash$insertfootlinetitle\}\{<YOUR-FOOTNOTE?\}}
+    \texttt{$\backslash$newcommand\{$\backslash$insertfootlinetitle\}\{<YOUR-FOOTLINE-TITLE>\}}
 \end{frame}
 
 \begin{frame}{Changing Back Matter}
-    The back matter can be modified in the "beamerthemegy.sty."  
+    The back matter can be modified in \texttt{beamerthemegt.sty}.
     \includegraphics[width=\textwidth]{plots/backmatter.png}
 \end{frame}
 % \themecolor{light}
